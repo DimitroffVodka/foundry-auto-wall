@@ -135,3 +135,11 @@ The canvas overlay is drawn with PIXI (v7.4.3) above the walls layer.
 ## Development
 
 The image core (`scripts/detect-core.js`, `scripts/wallgen.js`) is DOM-free, so it can be unit-tested in Node — copy a file to `*.mjs` and import it. Detection runs identically in the browser (canvas `ImageData`) and in Node, which keeps the geometry honest.
+
+## Credits
+
+Inspired by — and sharing the name and spirit of — the original **[Auto-Wall](https://github.com/ThreeHats/auto-wall)** desktop tool by **ThreeHats**, which is MIT licensed. This is an independent Foundry VTT module: the detection and wall-generation code is a from-scratch reimplementation in JavaScript, but the idea, the name, and much of the workflow come straight from that project. If this is useful to you, go star the original too.
+
+## License
+
+MIT — see [LICENSE](LICENSE). Carries the original Auto-Wall copyright (© 2025 ThreeHats) alongside this module's (© 2026 DimitroffVodka).

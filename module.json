@@ -4,6 +4,7 @@
   "description": "Automatically detect walls in battlemap images and create them as native Foundry walls. Tune detection, preview on the canvas, and commit.",
   "version": "0.2.0",
   "authors": [{ "name": "DimitroffVodka", "url": "https://github.com/DimitroffVodka" }],
+  "license": "MIT",
   "compatibility": { "minimum": "13", "verified": "14" },
   "esmodules": ["scripts/main.js"],
   "styles": ["styles/auto-wall.css"],
