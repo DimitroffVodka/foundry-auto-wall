@@ -1,0 +1,69 @@
+{{!-- Auto-Wall settings panel. Range rows get a paired number field; per-row
+      data-tooltip drives Foundry's hover tooltips. --}}
+{{#*inline "controlRows"}}
+  {{#each items}}
+    {{#if this.isCheckbox}}
+    <div class="form-group aw-check" data-tooltip="{{this.tip}}">
+      <label class="checkbox"><input type="checkbox" name="{{this.key}}" {{#if this.value}}checked{{/if}}> {{this.label}}</label>
+    </div>
+    {{else}}
+    <div class="form-group auto-wall-slider" data-tooltip="{{this.tip}}">
+      <label for="aw-{{this.key}}">{{this.label}}</label>
+      <div class="form-fields">
+        <input type="range" id="aw-{{this.key}}" name="{{this.key}}" value="{{this.value}}"
+               min="{{this.min}}" max="{{this.max}}" step="{{this.step}}">
+        <input type="number" class="aw-num" data-num="{{this.key}}" value="{{this.display}}"
+               min="{{this.min}}" max="{{this.max}}" step="{{this.step}}">
+      </div>
+    </div>
+    {{/if}}
+  {{/each}}
+{{/inline}}
+
+<section class="auto-wall-body">
+
+  <div class="form-group auto-wall-presets" data-tooltip="Apply a tuned starting point, or save your own (★ = custom).">
+    <label for="aw-preset">Preset</label>
+    <div class="form-fields">
+      <select id="aw-preset" name="preset">
+        <option value="" {{#unless currentPreset}}selected{{/unless}}>— Custom —</option>
+        {{#each presets}}<option value="{{this.name}}" {{#if this.selected}}selected{{/if}}>{{this.name}}{{#if this.custom}} ★{{/if}}</option>{{/each}}
+      </select>
+      <button type="button" data-action="auto" data-tooltip="Scan the map and pick the best preset automatically.">
+        <i class="fa-solid fa-wand-sparkles"></i> Auto
+      </button>
+    </div>
+    <div class="form-fields aw-preset-actions">
+      <button type="button" data-action="savePreset" data-tooltip="Save the current settings as a named custom preset.">
+        <i class="fa-solid fa-floppy-disk"></i> Save
+      </button>
+      <button type="button" data-action="deletePreset" data-tooltip="Delete the selected custom (★) preset.">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>
+    </div>
+  </div>
+
+  <h4 class="aw-section">Detection</h4>
+  {{> controlRows items=detection}}
+
+  <h4 class="aw-section">Walls</h4>
+  {{> controlRows items=walls}}
+
+  <div class="auto-wall-actions">
+    <button type="button" data-action="detect" data-tooltip="Detect wall outlines (green). Click a green shape to delete a bad detection; Ctrl+Z to undo.">
+      <i class="fa-solid fa-magnifying-glass"></i> Detect
+    </button>
+    <button type="button" data-action="generate" data-tooltip="Turn the outline into candidate walls (yellow). Adjust the wall sliders and preview again.">
+      <i class="fa-solid fa-draw-polygon"></i> Preview Walls
+    </button>
+    <button type="button" data-action="createWalls" data-tooltip="Commit the yellow preview as real Foundry walls you can drag, edit, and add doors to.">
+      <i class="fa-solid fa-check"></i> Create Walls
+    </button>
+    <button type="button" data-action="clearWalls" data-tooltip="Remove the auto-generated walls (keeps hand-drawn ones) and clear the preview.">
+      <i class="fa-solid fa-trash"></i> Clear
+    </button>
+  </div>
+
+  <p class="auto-wall-status" data-status>Ready.</p>
+
+</section>

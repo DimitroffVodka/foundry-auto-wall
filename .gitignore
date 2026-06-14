@@ -1,0 +1,13 @@
+# Local dev / AI tooling — not part of the published module
+AGENTS.md
+.planning/
+docs/reviews/
+
+# Build artifacts
+module.zip
+*.zip
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log

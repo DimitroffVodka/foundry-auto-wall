@@ -1,0 +1,35 @@
+/* Auto-Wall settings panel */
+.auto-wall-app .auto-wall-body { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.25rem; }
+
+.auto-wall-app .aw-section {
+  margin: 0.5rem 0 0.1rem; padding-bottom: 2px; font-size: 0.8rem; text-transform: uppercase;
+  letter-spacing: 0.05em; opacity: 0.7; border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.auto-wall-app .form-group { margin: 0; }
+.auto-wall-app .auto-wall-slider { display: grid; grid-template-columns: 1fr; gap: 2px; }
+.auto-wall-app .auto-wall-slider label { font-weight: 600; font-size: 0.82rem; }
+.auto-wall-app .auto-wall-slider .form-fields { display: flex; align-items: center; gap: 8px; }
+.auto-wall-app .auto-wall-slider input[type="range"] { flex: 1; min-width: 0; }
+.auto-wall-app .aw-num {
+  width: 4.2em; text-align: right; font-variant-numeric: tabular-nums; flex: 0 0 auto;
+}
+
+.auto-wall-app .aw-check label.checkbox { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.82rem; }
+.auto-wall-app .aw-check input[type="checkbox"] { flex: 0 0 auto; }
+
+.auto-wall-app .auto-wall-presets .form-fields { display: flex; gap: 6px; align-items: center; }
+.auto-wall-app .auto-wall-presets select { flex: 1; min-width: 0; }
+.auto-wall-app .aw-preset-actions { margin-top: 4px; }
+.auto-wall-app .aw-preset-actions button { flex: 1; }
+
+.auto-wall-app .auto-wall-actions {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 0.5rem;
+}
+.auto-wall-app .auto-wall-actions button { white-space: nowrap; }
+
+.auto-wall-app .auto-wall-status {
+  margin: 0.4rem 0 0; padding: 4px 6px; border-radius: 3px;
+  background: rgba(0,0,0,0.15); font-size: 0.82rem; min-height: 1.2em;
+}
+.auto-wall-app .auto-wall-status.is-error { background: rgba(180,40,40,0.25); color: #ffb4b4; }
